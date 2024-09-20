@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #219ebc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 90px;
+  display: block;
+  color: #fff;
+  font-size: 4rem;
+  width: 80px;
+}
+
+body > h1 {
+  text-align: center;
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-top: 3rem;
+}
+
+.container {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 80px;
+}
+
+.hole {
+  background-color: #bb9457;
+  border-radius: 50%;
+  box-shadow: 0 10px 0 7px #432818 inset,
+    0 20px 20px 15px rgba(0, 0, 0, 0.3) inset, 0 0 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 110px;
+  height: 100px;
+  background: url(./assets/hammer.png);
+  background-size: 100% 100%;
+  transform: translate(-20%, -20%);
+  transition: all 0.2s;
+  pointer-events: none;
+}
+
+.cursor.active {
+  transform: translate(-20%, -20%) rotate(-45deg);
+}
+
+.mole {
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  animation: rise 0.3s ease-out;
+}
+
+@keyframes rise {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+
+  100% {
+    transform: translate((-50%, 0));
+  }
+}
+
+@media (max-width: 499px) {
+  body {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .logo {
+    font-weight: 600;
+    font-size: 2rem;
+    left: 20px;
+  }
+
+  .cursor {
+    width: 90px;
+    height: 80px;
+  }
+
+  body > h1 {
+    margin: 0;
+  }
+
+  .container {
+    width: 400px;
+    height: 400px;
+    padding: 0 1rem;
+    margin-top: 1rem;
+  }
+}
